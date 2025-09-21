@@ -1,0 +1,53 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('/fitness1.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+nav .logo img {
+  width: 50px;
+}
+
+nav .auth-links a {
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: white;
+  text-align: center;
+}
+
+.login, .register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  margin: 10px;
+  padding: 10px;
+  width: 200px;
+}
+
+button {
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+}

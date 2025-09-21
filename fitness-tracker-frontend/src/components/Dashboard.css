@@ -1,0 +1,257 @@
+/* Dashboard.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@400;500;600&display=swap');
+
+:root {
+  --primary: #2a2b3d;
+  --secondary: #1c1d2c;
+  --accent: #00f3ff;
+  --accent-alt: #ff00c8;
+  --text: #ffffff;
+  --text-muted: #a0a0b0;
+  --card-bg: rgba(35, 36, 56, 0.8);
+  --success: #00ff9d;
+  --warning: #ffcc00;
+  --danger: #ff3860;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+}
+
+.dashboard-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
+              0 0 20px rgba(0, 243, 255, 0.1),
+              0 0 30px rgba(255, 0, 200, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dashboard-card h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, var(--accent), var(--accent-alt));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+}
+
+.dashboard-card > p {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.dashboard-tab-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.dashboard-tab-buttons button {
+  background: rgba(42, 43, 61, 0.7);
+  border: none;
+  color: var(--text);
+  padding: 1rem 1.8rem;
+  border-radius: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.dashboard-tab-buttons button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-alt));
+  transition: all 0.5s ease;
+  z-index: -1;
+  border-radius: 50px;
+}
+
+.dashboard-tab-buttons button:hover::before {
+  width: 100%;
+}
+
+.dashboard-tab-buttons button:hover {
+  color: #000;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 243, 255, 0.4);
+}
+
+.dashboard-tab-buttons button.active {
+  background: linear-gradient(90deg, var(--accent), var(--accent-alt));
+  color: #000;
+  font-weight: 700;
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.7);
+  transform: translateY(-3px);
+}
+
+.dashboard-widget {
+  background: rgba(28, 29, 44, 0.6);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  min-height: 400px;
+}
+
+.dashboard-widget h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent);
+  text-align: center;
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+}
+
+/* Chart Controls */
+.chart-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.chart-controls h3 {
+  margin: 0;
+}
+
+.period-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.period-buttons button {
+  background: rgba(42, 43, 61, 0.7);
+  border: none;
+  color: var(--text);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.period-buttons button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-alt));
+  transition: all 0.5s ease;
+  z-index: -1;
+  border-radius: 20px;
+}
+
+.period-buttons button:hover::before,
+.period-buttons button.active::before {
+  width: 100%;
+}
+
+.period-buttons button:hover,
+.period-buttons button.active {
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(0, 243, 255, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1rem;
+  }
+  
+  .dashboard-card {
+    padding: 1.5rem;
+  }
+  
+  .dashboard-card h1 {
+    font-size: 1.8rem;
+  }
+  
+  .dashboard-tab-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .dashboard-tab-buttons button {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* Animation for tab switching */
+.dashboard-widget {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--accent), var(--accent-alt));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(var(--accent-alt), var(--accent));
+}

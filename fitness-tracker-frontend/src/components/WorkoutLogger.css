@@ -1,0 +1,227 @@
+.workout-logger {
+  padding: 2rem;
+  border-radius: 1rem;
+  backdrop-filter: blur(12px);
+  background: rgba(30, 30, 40, 0.7);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  max-width: 700px;
+  margin: auto;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.workout-logger h3 {
+  font-size: 1.75rem;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.workout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.workout-form label {
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  color: #e0e0e0;
+}
+
+.workout-form input {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: rgba(20, 20, 30, 0.6);
+  font-size: 1rem;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.workout-form input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.workout-form input:focus {
+  border: 1px solid #6c5ce7;
+  background-color: rgba(30, 30, 40, 0.8);
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+}
+
+/* Exercise Input Container */
+.exercise-input-container {
+  position: relative;
+  width: 100%;
+}
+
+.exercise-input-container::after {
+  content: "▼";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(108, 92, 231, 0.6);
+  font-size: 12px;
+  pointer-events: none;
+}
+
+/* Exercise Dropdown */
+.exercise-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(20, 20, 30, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10000;
+  margin-top: 2px;
+  width: 100%;
+  min-width: 250px;
+  display: block !important;
+  visibility: visible !important;
+}
+
+/* Custom scrollbar for dropdown */
+.exercise-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+.exercise-dropdown::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.exercise-dropdown::-webkit-scrollbar-thumb {
+  background: rgba(108, 92, 231, 0.6);
+  border-radius: 3px;
+}
+
+.exercise-dropdown::-webkit-scrollbar-thumb:hover {
+  background: rgba(108, 92, 231, 0.8);
+}
+
+/* Exercise Options */
+.exercise-option {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.exercise-option:last-child {
+  border-bottom: none;
+}
+
+.exercise-option:hover {
+  background: rgba(108, 92, 231, 0.3);
+  color: #e0e0e0;
+}
+
+.exercise-option.selected {
+  background: rgba(108, 92, 231, 0.5);
+  color: #ffffff;
+}
+
+.exercise-option.selected .exercise-name::before {
+  content: "✓";
+  margin-right: 0.5rem;
+  color: #a29bfe;
+  font-weight: bold;
+}
+
+.exercise-name {
+  flex: 1;
+  font-weight: 500;
+}
+
+.exercise-category {
+  font-size: 0.8rem;
+  color: rgba(162, 155, 254, 0.8);
+  background: rgba(108, 92, 231, 0.2);
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Exercise categories hint */
+.exercise-hint {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.25rem;
+  font-style: italic;
+}
+
+.workout-form > div {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.workout-form > div > div {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+}
+
+.workout-form button {
+  padding: 0.9rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  box-shadow: 0 4px 6px rgba(108, 92, 231, 0.3);
+}
+
+.workout-form button:hover {
+  background: linear-gradient(135deg, #5d4fd9, #9087f5);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(108, 92, 231, 0.4);
+}
+
+.workout-form button:active {
+  transform: translateY(1px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .workout-logger {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  .workout-form > div {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .workout-form > div > div {
+    flex: 1 1 100%;
+  }
+}

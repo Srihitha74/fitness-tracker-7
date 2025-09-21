@@ -1,0 +1,219 @@
+/* Profile.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@400;500;600&display=swap');
+
+:root {
+  --primary: #2a2b3d;
+  --secondary: #1c1d2c;
+  --accent: #00f3ff;
+  --accent-alt: #ff00c8;
+  --text: #ffffff;
+  --text-muted: #a0a0b0;
+  --card-bg: rgba(35, 36, 56, 0.8);
+  --success: #00ff9d;
+  --warning: #ffcc00;
+  --danger: #ff3860;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+}
+
+.profile-container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.profile-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
+              0 0 20px rgba(0, 243, 255, 0.1),
+              0 0 30px rgba(255, 0, 200, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-card h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(90deg, var(--accent), var(--accent-alt));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+  text-align: center;
+}
+
+.message {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.message.success {
+  background: rgba(0, 255, 157, 0.2);
+  color: var(--success);
+  border: 1px solid var(--success);
+}
+
+.message.error {
+  background: rgba(255, 56, 96, 0.2);
+  color: var(--danger);
+  border: 1px solid var(--danger);
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.profile-info {
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.profile-field {
+  margin-bottom: 1.5rem;
+}
+
+.profile-field label {
+  display: block;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.profile-field span {
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.profile-field input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  background: rgba(28, 29, 44, 0.6);
+  color: var(--text);
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.profile-field input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+}
+
+.profile-field select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  background: rgba(28, 29, 44, 0.6);
+  color: var(--text);
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+}
+
+.profile-field select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+}
+
+.profile-field select option {
+  background: var(--secondary);
+  color: var(--text);
+}
+
+.profile-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.profile-actions button {
+  background: rgba(42, 43, 61, 0.7);
+  border: none;
+  color: var(--text);
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.profile-actions button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-alt));
+  transition: all 0.5s ease;
+  z-index: -1;
+  border-radius: 50px;
+}
+
+.profile-actions button:hover::before {
+  width: 100%;
+}
+
+.profile-actions button:hover {
+  color: #000;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 243, 255, 0.4);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 1rem;
+  }
+
+  .profile-card {
+    padding: 1.5rem;
+  }
+
+  .profile-card h1 {
+    font-size: 1.8rem;
+  }
+
+  .profile-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-actions button {
+    width: 100%;
+    max-width: 200px;
+  }
+}
